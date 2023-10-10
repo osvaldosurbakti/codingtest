@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 01 Sep 2023 pada 11.52
+-- Waktu pembuatan: 10 Okt 2023 pada 12.53
 -- Versi server: 10.4.28-MariaDB
 -- Versi PHP: 8.2.4
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `tesproject`
+-- Database: `codingtest`
 --
 
 -- --------------------------------------------------------
@@ -215,6 +215,27 @@ CREATE TABLE `auth_users_permissions` (
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `jenis_sampah`
+--
+
+CREATE TABLE `jenis_sampah` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(255) NOT NULL,
+  `deskripsi` text DEFAULT NULL,
+  `foto` varchar(255) DEFAULT NULL,
+  `harga_per_kilogram` decimal(10,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `jenis_sampah`
+--
+
+INSERT INTO `jenis_sampah` (`id`, `nama`, `deskripsi`, `foto`, `harga_per_kilogram`) VALUES
+(1, 'Kaca', 'Pecahan Kaca', '1693770775_021e63b927aed53927d3.jpg', 1000.00);
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `migrations`
 --
 
@@ -339,6 +360,12 @@ ALTER TABLE `auth_users_permissions`
   ADD KEY `user_id_permission_id` (`user_id`,`permission_id`);
 
 --
+-- Indeks untuk tabel `jenis_sampah`
+--
+ALTER TABLE `jenis_sampah`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
@@ -391,6 +418,12 @@ ALTER TABLE `auth_reset_attempts`
 --
 ALTER TABLE `auth_tokens`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `jenis_sampah`
+--
+ALTER TABLE `jenis_sampah`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `migrations`
